@@ -1,0 +1,15 @@
+---
+- name: Tarea cada un minuto
+  cron:
+    name: "lista"
+    user: "{{ usuario }}"
+    minute: "*"
+    hour: "*"
+    job: "ls -lah /var/log/ > lista | echo 'La tarea termino correctamente'"     
+
+- name: Modifica cronjob
+  cronvar:
+    name: MAILTO
+    user: "{{ usuario }}"
+    value: "{{ mail }}"
+          
